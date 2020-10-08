@@ -9,8 +9,10 @@ def print_byte_codes(data):
       print()
 
 def bisync_body(data):
-  body = b""
-  #put your code here
+  # escaping
+  body = data.replace(b'\x10', b'\x10\x10')
+  body = data.replace(b'\x02', b'\x10\x02')
+  body = data.replace(b'\x03', b'\x10\x03')
   return body
 
 if __name__ == "__main__":
